@@ -1,0 +1,2 @@
+D:\game\FirstMiniGame\Client\Clear_2048\obj\Debug\Assembly-CSharp-Editor.csproj.AssemblyReference.cache
+D:\game\FirstMiniGame\Client\Clear_2048\obj\Debug\Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
