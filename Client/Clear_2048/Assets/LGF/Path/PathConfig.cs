@@ -12,8 +12,8 @@ namespace LGF.Path
 
         private static string StreamingAssetsPath = Application.streamingAssetsPath;
 
-        private static string _hotfixPath = $"{Game.resManager.DefaultPackage.GetPackageSandboxRootDirectory()}";
-        private static string _buildinRootPath = $"{Game.resManager.DefaultPackage.GetPackageBuildinRootDirectory()}";
+        private static string _hotfixPath = $"{Game.ResManager.DefaultPackage.GetPackageSandboxRootDirectory()}";
+        private static string _buildinRootPath = $"{Game.ResManager.DefaultPackage.GetPackageBuildinRootDirectory()}";
 
         public static string ArtPath = $"{AssetsPath}/GameMain/Art";
 

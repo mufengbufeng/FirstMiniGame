@@ -48,10 +48,15 @@
   <ItemGroup>
     <Compile Include="Assets\LGF\Editor\ExcelUtil.cs" />
     <Compile Include="Assets\LGF\Editor\ExcelToJson.cs" />
+    <Compile Include="Assets\LGF\Editor\Excel\ExcelEditor.cs" />
     <Compile Include="Assets\LGF\Editor\UI\ExcelWindow.cs" />
     <Compile Include="Assets\LGF\Editor\ExcelTable.cs" />
-    <None Include="Assets\LGF\Editor\UI\ExcelWindow.uxml" />
+    <None Include="Assets\LGF\Editor\Excel\toolkit\ExcelWindowTest.uxml" />
+    <None Include="Assets\LGF\Editor\Excel\toolkit\ExcelWindowTest.uss" />
     <None Include="Assets\LGF\Editor\UI\ExcelWindow.uss" />
+    <None Include="Assets\LGF\Editor\UI\Item.uxml" />
+    <None Include="Assets\LGF\Editor\UI\ExcelWindow.uxml" />
+    <None Include="Assets\LGF\Editor\Excel\toolkit\Item.uxml" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.2f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -424,8 +429,17 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\PackageCache\com.unity.collab-proxy\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
+      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces">
+      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\PackageCache\com.unity.collab-proxy\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing">
+      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\EPPlus.System.Drawing.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\PackageCache\com.unity.collab-proxy\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
@@ -441,15 +455,6 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\PackageCache\com.unity.nuget.mono-cecil\Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus.Interfaces">
-      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\EPPlus.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus.System.Drawing">
-      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\EPPlus.System.Drawing.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
-      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\EPPlus.dll</HintPath>
@@ -961,11 +966,11 @@
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Editor">
-      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="YooAsset">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\ScriptAssemblies\YooAsset.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>

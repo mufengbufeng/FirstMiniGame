@@ -13,7 +13,7 @@ namespace LGF.UI
         private readonly Dictionary<string, IUIRoot> m_UIForms = new();
         private GameObject _canvas;
 
-        public override void Awake()
+        protected override void Awake()
         {
             base.Awake();
             _canvas = GameObject.Find("Canvas");
@@ -35,7 +35,7 @@ namespace LGF.UI
                 return null;
             }
 
-            GameObject uiObj = Game.resManager.LoadGameObject(uiPath, _canvas.transform);
+            GameObject uiObj = Game.ResManager.LoadGameObject(uiPath, _canvas.transform);
 
             T uiForm = gameObject.AddComponent<T>();
             uiForm.Init(uiFormName, uiDepth, userData);
@@ -43,7 +43,7 @@ namespace LGF.UI
 
             m_UIForms.Add(uiFormName, uiForm);
 
-            Game.eventManager.Trigger(UIEvent.UI_OPEN, uiFormName);
+            Game.EventManager.Trigger(UIEvent.UI_OPEN, uiFormName);
             Debug.Log($"UIManager Open: {uiFormName}");
             return uiForm;
         }
@@ -62,12 +62,12 @@ namespace LGF.UI
                 return null;
             }
 
-            IUIRoot uiForm = Game.resManager.LoadAsset<IUIRoot>(uiPath);
+            IUIRoot uiForm = Game.ResManager.LoadAsset<IUIRoot>(uiPath);
             uiForm.Init(uiFormName, uiDepth, useData);
             uiForm.transform.SetParent(_canvas.transform);
 
             m_UIForms.Add(uiFormName, uiForm);
-            Game.eventManager.Trigger(UIEvent.UI_OPEN, uiFormName);
+            Game.EventManager.Trigger(UIEvent.UI_OPEN, uiFormName);
             Debug.Log($"UIManager Open: {uiFormName}");
             return uiForm;
         }
@@ -80,7 +80,7 @@ namespace LGF.UI
 
                 Remove(m_UIForms[uiFormName]);
 
-                Game.eventManager.Trigger(UIEvent.UI_CLOSE, uiFormName);
+                Game.EventManager.Trigger(UIEvent.UI_CLOSE, uiFormName);
                 Debug.Log($"UIManager Close: {uiFormName}");
             }
         }

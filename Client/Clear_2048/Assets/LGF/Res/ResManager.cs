@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
+using Object = UnityEngine.Object;
 
 namespace LGF.Res
 {
@@ -43,7 +44,7 @@ namespace LGF.Res
         /// </summary>
         private readonly Dictionary<string, AssetInfo> _assetInfoDic = new();
 
-        public override void Awake()
+        protected override void Awake()
         {
             base.Awake();
             YooAssets.Initialize();
@@ -60,7 +61,7 @@ namespace LGF.Res
                 EditorSimulateModeHelper.SimulateBuild(EDefaultBuildPipeline.BuiltinBuildPipeline, "DefaultPackage");
             initParameters.SimulateManifestFilePath = simulateManifestFilePath;
             yield return DefaultPackage.InitializeAsync(initParameters);
-            Game.eventManager.Trigger("YooAssetInitialized");
+            Game.EventManager.Trigger("YooAssetInitialized");
 #else
             // 注意：GameQueryServices.cs 太空战机的脚本类，详细见StreamingAssetsHelper.cs
             string defaultHostServer = GetHostServerURL();
@@ -102,7 +103,7 @@ namespace LGF.Res
                 packageVersion = operation.PackageVersion;
                 yield return StartCoroutine(UpdatePackageManifest());
 
-                Game.eventManager.Trigger("YooAssetInitialized");
+                Game.EventManager.Trigger("YooAssetInitialized");
                 Debug.Log($"Updated package Version : {packageVersion}");
             }
             else
@@ -476,7 +477,7 @@ namespace LGF.Res
 
             string assetObjectKey = GetCharacterKey(location, packageName);
             // TODO: 从缓存中获取
-            AssetHandle handle = GetHandleSync<T>(location, packageName);
+            AssetHandle handle = GetHandleSync<Object>(location, packageName);
             T ret = handle.AssetObject as T;
             // TODO: 缓存资源
             return ret;
@@ -700,7 +701,7 @@ public class StreamingAssetsDefine
     /// <summary>
     /// 根目录名称（保持和YooAssets资源系统一致）
     /// </summary>
-    public const string RootFolderName = "su";
+    public const string RootFolderName = "Clear_2048";
 }
 
 /// <summary>

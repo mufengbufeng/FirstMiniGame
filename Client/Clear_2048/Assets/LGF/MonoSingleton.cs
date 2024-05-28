@@ -32,7 +32,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     }
 
 
-    public virtual void Awake()
+    protected virtual void Awake()
     {
         DontDestroyOnLoad(gameObject);
         if (_instance == null)

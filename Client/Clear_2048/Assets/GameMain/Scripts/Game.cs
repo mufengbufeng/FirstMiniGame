@@ -10,22 +10,22 @@ using YooAsset;
 
 public class Game : MonoBehaviour
 {
-    public static EventManager eventManager;
-    public static ResManager resManager;
-    public static UIManager uiManager;
+    public static EventManager EventManager;
+    public static ResManager ResManager;
+    public static UIManager UIManager;
 
     private void Awake()
     {
-        eventManager = this.AddComponent<EventManager>();
-        resManager = this.AddComponent<ResManager>();
-        uiManager = this.AddComponent<UIManager>();
+        EventManager = this.AddComponent<EventManager>();
+        ResManager = this.AddComponent<ResManager>();
+        UIManager = this.AddComponent<UIManager>();
     }
 
     void Start()
     {
-        eventManager.Trigger("InitFinish");
+        EventManager.Trigger("InitFinish");
 
-        eventManager.Add("YooAssetInitialized", (message) => { });
+        EventManager.Add("YooAssetInitialized", (message) => { });
     }
 
     private void Update()
@@ -38,12 +38,8 @@ public class Game : MonoBehaviour
 
     private void Load()
     {
-        // string path = PathConfig.GetUIPrefabPath("RootCube");
-        // AssetInfo assetInfo = resManager.GetAssetInfo(path);
-        // GameObject go = resManager.LoadGameObject(path, "", transform);
-        // Task<GameObject> go2 = resManager.LoadGameObjectAsync(path, "", transform);
-        // go2.ContinueWith(t => { Debug.Log("AAAAAAAAAAAAAAAA"); });
-        // uiManager.Open<TestUI>();
+        UIManager.Open<MainView>();
+        UIManager.Open("MainView");
         Debug.Log("aaaa");
     }
 }

@@ -31,7 +31,7 @@ namespace LGF.Res
         {
             if (_resManager == null)
             {
-                _resManager = Game.resManager;
+                _resManager = Game.ResManager;
             }
 
             if (_sourceGameObject != null)

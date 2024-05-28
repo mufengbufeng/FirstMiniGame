@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using OfficeOpenXml;
+using UnityEditor;
+
 namespace LGF.Editor
 {
     /// <summary>
@@ -36,9 +38,10 @@ namespace LGF.Editor
         public int keyCount = 1;
 
         public List<ExcelColumn> clientCols = new();
+
         // public List<ExcelColumn> serverCols = new List<ExcelColumn>(); TODO: 服务器字段
         public List<List<string>> dataRows = new();
-        
+
         public void Parse(ExcelWorksheet sheet)
         {
             var rowCount = sheet.Dimension.Rows;
@@ -46,7 +49,24 @@ namespace LGF.Editor
             keyCount = 1;
             for (int row = 1; row <= rowCount; row++)
             {
-                    
+                if (row >= 7)
+                {
+                    int isUse = int.Parse(ExcelUtil.GetValueString(sheet, row, 2, "-1"));
+                    if (isUse > 0)
+                        dataRows.Add(ExcelUtil.GetRowValueList(sheet, row));
+                }
+                else if (row == 1)
+                {
+                }
+                else if (row == 2)
+                {
+                }
+                else if (row == 3)
+                {
+                }
+                else if (row == 4)
+                {
+                }
             }
         }
     }

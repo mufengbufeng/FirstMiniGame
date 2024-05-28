@@ -9,7 +9,7 @@ namespace LGF.Event
 
         private static EventManager eventManager;
 
-        public override void Awake()
+        protected override void Awake()
         {
             base.Awake();
             _eventDictionay = new Dictionary<string, Action<object[]>>();
