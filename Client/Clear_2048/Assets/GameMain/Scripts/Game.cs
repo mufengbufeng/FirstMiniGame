@@ -1,12 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using LGF.Event;
-using LGF.Path;
 using LGF.Res;
 using LGF.UI;
 using Unity.VisualScripting;
 using UnityEngine;
-using YooAsset;
 
 public class Game : MonoBehaviour
 {
@@ -38,8 +34,10 @@ public class Game : MonoBehaviour
 
     private void Load()
     {
-        UIManager.Open<MainView>();
-        UIManager.Open("MainView");
+        // UIManager.Open<MainView>();
+        int[] a = new[] { 1, 1, 2, 2, 1 };
+        // UIManager.Open<MainView>();
+        UIManager.Open("MainView", a);
         Debug.Log("aaaa");
     }
 }

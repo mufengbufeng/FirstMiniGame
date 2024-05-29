@@ -477,7 +477,7 @@ namespace LGF.Res
 
             string assetObjectKey = GetCharacterKey(location, packageName);
             // TODO: 从缓存中获取
-            AssetHandle handle = GetHandleSync<Object>(location, packageName);
+            AssetHandle handle = GetHandleSync<T>(location, packageName);
             T ret = handle.AssetObject as T;
             // TODO: 缓存资源
             return ret;
