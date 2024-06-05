@@ -4,12 +4,12 @@ namespace LGF.MVC
 {
     public class LGFController : MonoSingleton<LGFController>
     {
-        protected EventManager eventManager;
+        protected EventManager EventManager;
 
         protected override void Awake()
         {
             base.Awake();
-            eventManager = EventManager.Instance;
+            EventManager = EventManager.Instance;
         }
     }
 }

@@ -9,28 +9,33 @@ public class Game : MonoBehaviour
     public static EventManager EventManager;
     public static ResManager ResManager;
     public static UIManager UIManager;
+    public static DataManager DataManager;
 
     private void Awake()
     {
         EventManager = this.AddComponent<EventManager>();
         ResManager = this.AddComponent<ResManager>();
         UIManager = this.AddComponent<UIManager>();
+
+        EventManager.Add(GameEvent.YooAssetInitialized, (message) =>
+        {
+            DataManager = this.AddComponent<DataManager>();
+            Load();
+        });
     }
 
     void Start()
     {
-        EventManager.Trigger("InitFinish");
-
-        EventManager.Add("YooAssetInitialized", (message) => { });
+        // EventManager.Add(GameEvent.YooAssetInitialized, (message) => { Load(); });
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Load();
-        }
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.J))
+    //     {
+    //         Load();
+    //     }
+    // }
 
     private void Load()
     {

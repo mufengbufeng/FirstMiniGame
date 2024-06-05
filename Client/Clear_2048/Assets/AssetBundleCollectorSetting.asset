@@ -34,7 +34,7 @@ MonoBehaviour:
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/GameMain/Prefabs
+      - CollectPath: Assets/GameMain/UIPrefabs
         CollectorGUID: 8290d59f507594e4ba6f94e51ed1be39
         CollectorType: 0
         AddressRuleName: AddressByFileName
@@ -47,3 +47,16 @@ MonoBehaviour:
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors: []
+    - GroupName: Data
+      GroupDesc: "\u8868\u683C\u6570\u636E(json)"
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/GameMain/ExData
+        CollectorGUID: 867016037d958f948a77d03185ca7749
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 

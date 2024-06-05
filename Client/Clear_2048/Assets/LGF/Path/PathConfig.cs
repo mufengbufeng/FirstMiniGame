@@ -9,6 +9,7 @@ namespace LGF.Path
     public static class PathConfig
     {
         public static string AssetsPath = Application.dataPath;
+        public static string ExDataPath = $"{AssetsPath}/GameMain/ExData";
 
         private static string StreamingAssetsPath = Application.streamingAssetsPath;
 
@@ -20,18 +21,23 @@ namespace LGF.Path
         //获取资源路径
         public static string GetMaterialPath(string assetName)
         {
-            string assetPath = $"{ArtPath}/Materials/{GetFirstWord(assetName)}/{assetName}";
-            Debug.Log(assetPath);
+            string assetPath = GlobalToLocalPath($"{ArtPath}/Materials/{GetFirstWord(assetName)}/{assetName}");
+            return assetName;
+        }
+
+        public static string GetJsonDataPath(string assetName)
+        {
             return assetName;
         }
 
         public static string GetUIPrefabPath(string assetName)
         {
-            // string assetPath = "";
-            // assetPath = $"{_buildinRootPath}/UIPrefabs/{GetFirstWord(assetName)}/{assetName}";
-            // Debug.Log(_buildinRootPath);
-            // Debug.Log(_hotfixPath);
-            return assetName;
+            string assetPath = "";
+            assetPath = GlobalToLocalPath($"{AssetsPath}/GameMain/UIPrefabs/{GetFirstWord(assetName)}/{assetName}");
+
+            Debug.Log(AssetsPath);
+            Debug.Log(assetPath);
+            return assetPath;
         }
 
         // 获取大驼峰第一个单词长度
@@ -55,6 +61,12 @@ namespace LGF.Path
         {
             int length = GetFirstWordLength(str);
             return str.Substring(0, length);
+        }
+
+        // 绝对路径转本地Assets路径
+        public static string GlobalToLocalPath(string absolutePath)
+        {
+            return absolutePath.Replace(Application.dataPath, "Assets");
         }
     }
 }

@@ -42,7 +42,7 @@ namespace LGF.Editor
         public static List<string> GetRowValueList(ExcelWorksheet ws, int row)
         {
             List<string> list = new List<string>();
-            for (int i = 1; i <= ws.Dimension.Columns; i++)
+            for (int i = 2; i <= ws.Dimension.Columns; i++)
             {
                 list.Add(GetValueString(ws, row, i));
             }
@@ -52,7 +52,7 @@ namespace LGF.Editor
 
         public static void ForEachColumn(ExcelWorksheet ws, int row, System.Action<int, string> action)
         {
-            for (int i = 1; i <= ws.Dimension.Columns; i++)
+            for (int i = 2; i <= ws.Dimension.Columns; i++)
             {
                 action(i, GetValueString(ws, row, i));
             }

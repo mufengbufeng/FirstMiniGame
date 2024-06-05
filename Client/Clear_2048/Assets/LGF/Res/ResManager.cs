@@ -61,7 +61,7 @@ namespace LGF.Res
                 EditorSimulateModeHelper.SimulateBuild(EDefaultBuildPipeline.BuiltinBuildPipeline, "DefaultPackage");
             initParameters.SimulateManifestFilePath = simulateManifestFilePath;
             yield return DefaultPackage.InitializeAsync(initParameters);
-            Game.EventManager.Trigger("YooAssetInitialized");
+            Game.EventManager.Trigger(GameEvent.YooAssetInitialized);
 #else
             // 注意：GameQueryServices.cs 太空战机的脚本类，详细见StreamingAssetsHelper.cs
             string defaultHostServer = GetHostServerURL();
@@ -103,7 +103,7 @@ namespace LGF.Res
                 packageVersion = operation.PackageVersion;
                 yield return StartCoroutine(UpdatePackageManifest());
 
-                Game.EventManager.Trigger("YooAssetInitialized");
+                Game.EventManager.Trigger(GameEvent.YooAssetInitialized);
                 Debug.Log($"Updated package Version : {packageVersion}");
             }
             else
@@ -427,7 +427,7 @@ namespace LGF.Res
         /// <param name="packageName">指定资源包的名称。不传使用默认资源包</param>
         /// <typeparam name="T">资源类型。</typeparam>
         /// <returns>资源句柄。</returns>
-        private AssetHandle GetHandleSync<T>(string location, string packageName = "") where T : UnityEngine.Object
+        private AssetHandle GetHandleSync<T>(string location, string packageName = "")
         {
             return GetHandleSync(location, typeof(T), packageName);
         }
@@ -468,20 +468,27 @@ namespace LGF.Res
 
         #endregion
 
-        public T LoadAsset<T>(string location, string packageName = "") where T : UnityEngine.Object
+        /**
+         * 加载资源
+         * @param location 资源定位地址
+         * @param packageName 指定资源包的名称。不传使用默认资源包
+         */
+        public T LoadAsset<T>(string location, string packageName = "") where T : Object
         {
             if (string.IsNullOrEmpty(location))
             {
                 throw new Exception("location is null or empty !");
             }
 
-            string assetObjectKey = GetCharacterKey(location, packageName);
+            // string assetObjectKey = GetCharacterKey(location, packageName);
             // TODO: 从缓存中获取
             AssetHandle handle = GetHandleSync<T>(location, packageName);
             T ret = handle.AssetObject as T;
             // TODO: 缓存资源
             return ret;
         }
+
+
 
         public GameObject LoadGameObject(string location, Transform parent = null, string packageName = "")
         {

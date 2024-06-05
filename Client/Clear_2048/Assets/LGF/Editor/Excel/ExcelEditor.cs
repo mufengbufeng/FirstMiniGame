@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using LGF.Editor;
+using LGF.Path;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -29,11 +31,23 @@ public class ExcelEditor : EditorWindow
         var searchRoot = labelFromUXML.Q<VisualElement>("SearchElement");
         var scrollRoot = labelFromUXML.Q<ScrollView>("ScrollRoot");
         var field = searchRoot.Q<TextField>("SearchField");
-
+        var createAllBtn = labelFromUXML.Q<Button>("CreateAllBtn");
         // 搜索框发生变化
         field.RegisterValueChangedCallback(Search);
 
         string[] allExcelFiles = Directory.GetFiles(ExcelRoot, "*.xlsx", SearchOption.AllDirectories);
+        allExcelFiles = Array.FindAll(allExcelFiles, s => !s.Contains("~")); // 过滤掉临时文件
+        createAllBtn.clicked += () =>
+        {
+            foreach (string str in allExcelFiles)
+            {
+                ExcelToJson.Make(ExcelRoot, (file) =>
+                    file.EndsWith(str), PathConfig.ExDataPath, PathConfig.ExDataPath);
+            }
+
+            EditorUtility.DisplayDialog("提示", "数据生成完毕", "知道了");
+            GC.Collect();
+        };
         foreach (string str in allExcelFiles)
         {
             var newItem = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>($"{UXMLROOT}Item.uxml").Instantiate();
@@ -58,5 +72,9 @@ public class ExcelEditor : EditorWindow
     private void NameBtn_clicked(string str)
     {
         Debug.Log(str);
+        ExcelToJson.Make(ExcelRoot, (file) =>
+            file.EndsWith(str), PathConfig.ExDataPath, PathConfig.ExDataPath);
+        // EditorUtility.DisplayDialog("提示", $"{str}数据生成完毕", "知道了");
+        GC.Collect();
     }
 }

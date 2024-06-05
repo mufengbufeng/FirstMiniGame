@@ -53,6 +53,7 @@
     <Compile Include="Assets\LGF\MVC\LGFView.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\LGF\Data\DataManager.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -98,6 +99,8 @@
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\LGF\Res\ResManager.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\GameMain\Scripts\GameEvent.cs" />
+    <None Include="Assets\GameMain\ExData\TestEx.json" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - License.txt" />
@@ -110,6 +113,7 @@
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\GameMain\ExData\DataConfig.json" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\GameMain\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -120,6 +124,7 @@
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\GameMain\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\GameMain\ExData\TestEx2.json" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\GameMain\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -479,9 +484,6 @@
     <Reference Include="nunit.framework">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Library\PackageCache\com.unity.ext.nunit\net40\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
-      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
-    </Reference>
     <Reference Include="EPPlus.Interfaces">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\EPPlus.Interfaces.dll</HintPath>
     </Reference>
@@ -496,6 +498,9 @@
     </Reference>
     <Reference Include="EPPlus">
       <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
+      <HintPath>D:\game\FirstMiniGame\Client\Clear_2048\Assets\LGF\Plungs\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.2f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
