@@ -58,6 +58,7 @@
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\GameMain\Scripts\UIController\CSynthesis.cs" />
     <Compile Include="Assets\LGF\MVC\LGFController.cs" />
     <Compile Include="Assets\LGF\Util\PathUtil.cs" />
     <Compile Include="Assets\LGF\Event\UIEvent.cs" />
