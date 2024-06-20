@@ -1,6 +1,7 @@
+using LGF.MVC;
 using UnityEngine;
 
-public class MainModel : MonoBehaviour
+public class MainModel : LGFModel
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

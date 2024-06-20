@@ -1,4 +1,5 @@
 using LGF.Event;
+using UnityEngine;
 
 namespace LGF.MVC
 {
@@ -10,6 +11,7 @@ namespace LGF.MVC
         {
             base.Awake();
             EventManager = EventManager.Instance;
+            Debug.LogError("aaaaaaaaaaaaaaaaa");
         }
     }
 }
