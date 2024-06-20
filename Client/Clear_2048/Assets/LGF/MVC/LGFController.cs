@@ -1,15 +1,17 @@
 using LGF.Event;
+using UnityEngine;
 
 namespace LGF.MVC
 {
-    public class LGFController : MonoSingleton<LGFController>
+    public class LGFController : Singleton<LGFController>
     {
         protected EventManager EventManager;
 
-        protected override void Awake()
+        public virtual void Init()
         {
-            base.Awake();
+            Debug.Log("LGFController Init");
             EventManager = EventManager.Instance;
         }
+
     }
 }

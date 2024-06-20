@@ -18,7 +18,7 @@ public class Game : MonoBehaviour
         EventManager = this.AddComponent<EventManager>();
         ResManager = this.AddComponent<ResManager>();
         UIManager = this.AddComponent<UIManager>();
-
+        GameModule.InitController();
         EventManager.Add(GameEvent.YooAssetInitialized, (message) =>
         {
             _dataManager = this.AddComponent<DataManager>();
