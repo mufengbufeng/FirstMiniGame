@@ -10,24 +10,37 @@ namespace LGF.Path
     {
         public static string AssetsPath = Application.dataPath;
         public static string ExDataPath = $"{AssetsPath}/GameMain/ExData";
-
+        public static string ExDataScriptPath = $"{AssetsPath}/GameMain/Scripts/Data";
         private static string StreamingAssetsPath = Application.streamingAssetsPath;
 
-        private static string _hotfixPath = $"{Game.ResManager.DefaultPackage.GetPackageSandboxRootDirectory()}";
-        private static string _buildinRootPath = $"{Game.ResManager.DefaultPackage.GetPackageBuildinRootDirectory()}";
+        // private static string _hotfixPath = $"{Game.ResManager.DefaultPackage.GetPackageSandboxRootDirectory()}";
+        // private static string _buildinRootPath = $"{Game.ResManager.DefaultPackage.GetPackageBuildinRootDirectory()}";
 
         public static string ArtPath = $"{AssetsPath}/GameMain/Art";
 
         //获取资源路径
         public static string GetMaterialPath(string assetName)
         {
-            string assetPath = GlobalToLocalPath($"{ArtPath}/Materials/{GetFirstWord(assetName)}/{assetName}");
-            return assetName;
+            string res = GlobalToLocalPath($"{ArtPath}/Materials/{GetFirstWord(assetName)}/{assetName}");
+            return res;
+        }
+
+        public static string GetAtlasPath(string assetName, string resName)
+        {
+            string res = GlobalToLocalPath($"{ArtPath}/Atlas/{assetName}/{resName}.png");
+            return res;
+        }
+
+        public static string GetIconPath(string assetName, string resName)
+        {
+            string res = GlobalToLocalPath($"{ArtPath}/Icons/{assetName}/{resName}.png");
+            return res;
         }
 
         public static string GetJsonDataPath(string assetName)
         {
-            return assetName;
+            string res = GlobalToLocalPath($"{ExDataPath}/{assetName}.json");
+            return res;
         }
 
         public static string GetUIPrefabPath(string assetName)
@@ -35,8 +48,6 @@ namespace LGF.Path
             string assetPath = "";
             assetPath = GlobalToLocalPath($"{AssetsPath}/GameMain/UIPrefabs/{GetFirstWord(assetName)}/{assetName}");
 
-            Debug.Log(AssetsPath);
-            Debug.Log(assetPath);
             return assetPath;
         }
 

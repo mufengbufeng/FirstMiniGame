@@ -87,12 +87,14 @@ namespace LGF.Editor
                     {
                         var typeInfo = ExcelUtil.GetValueString(sheet, 5, col);
                         var useStr = ExcelUtil.GetValueString(sheet, 6, col).Split(',');
+                        var mDesc = ExcelUtil.GetValueString(sheet, 3, col);
                         var isUseCline = useStr.Any(item => item.Contains("c"));
                         var isUseServer = useStr.Any(item => item.Contains("s"));
                         if (!string.IsNullOrEmpty(val) && !string.IsNullOrEmpty(typeInfo))
                         {
                             var ec = new ExcelColumn();
                             ec.col = col;
+                            ec.desc = mDesc;
                             ec.index = col - 1;
                             ec.name = val;
                             ec.type = typeInfo;

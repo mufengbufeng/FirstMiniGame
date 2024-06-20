@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using LGF.Path;
 using UnityEngine;
 using YooAsset;
 using Object = UnityEngine.Object;
@@ -488,7 +489,19 @@ namespace LGF.Res
             return ret;
         }
 
+        public Sprite LoadSprite(string pathName, string assName, string packageName = "")
+        {
+            if (string.IsNullOrEmpty(assName))
+            {
+                throw new Exception("location is null or empty !");
+            }
 
+            string path = PathConfig.GetAtlasPath(pathName, assName);
+            // TODO 从缓存获取
+            var sprite = LoadAsset<Sprite>(path, packageName);
+
+            return sprite;
+        }
 
         public GameObject LoadGameObject(string location, Transform parent = null, string packageName = "")
         {

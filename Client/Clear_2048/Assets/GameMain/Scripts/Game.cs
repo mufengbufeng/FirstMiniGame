@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using LGF.Data;
 using LGF.Event;
 using LGF.Res;
 using LGF.UI;
@@ -9,7 +11,7 @@ public class Game : MonoBehaviour
     public static EventManager EventManager;
     public static ResManager ResManager;
     public static UIManager UIManager;
-    public static DataManager DataManager;
+    private DataManager _dataManager;
 
     private void Awake()
     {
@@ -19,7 +21,8 @@ public class Game : MonoBehaviour
 
         EventManager.Add(GameEvent.YooAssetInitialized, (message) =>
         {
-            DataManager = this.AddComponent<DataManager>();
+            _dataManager = this.AddComponent<DataManager>();
+
             Load();
         });
     }

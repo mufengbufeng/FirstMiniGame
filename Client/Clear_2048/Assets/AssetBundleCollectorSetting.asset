@@ -28,7 +28,15 @@ MonoBehaviour:
       GroupDesc: "\u6750\u8D28"
       AssetTags: 
       ActiveRuleName: EnableGroup
-      Collectors: []
+      Collectors:
+      - CollectPath: Assets/GameMain/Art/Material
+        CollectorGUID: b32f671e199cfd14c8dd30e4bc5b8b7b
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
     - GroupName: UI
       GroupDesc: "UI\u9884\u5236\u4F53"
       AssetTags: 
@@ -54,6 +62,19 @@ MonoBehaviour:
       Collectors:
       - CollectPath: Assets/GameMain/ExData
         CollectorGUID: 867016037d958f948a77d03185ca7749
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Atlas
+      GroupDesc: "\u901A\u7528\u56FE\u96C6\u8D44\u6E90"
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/GameMain/Art/Atlas
+        CollectorGUID: af19e14c3b29a6c4eb3251c15e120308
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackDirectory

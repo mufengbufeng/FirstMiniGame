@@ -1,24 +1,59 @@
 using System;
+using System.Collections.Generic;
 using LGF.Path;
 using UnityEngine;
 
-[Serializable]
-public class DataConfig_Json
+namespace LGF.Data
 {
-    public string url;
-}
-
-public class DataManager : MonoSingleton<DataManager>
-{
-    protected override void Awake()
+    [Serializable]
+    public class ConfigEx
     {
-        base.Awake();
-        Init("DataConfig");
+        public List<string> paths;
     }
 
-    public void Init(string fileName)
+    public class DataManager : MonoSingleton<DataManager>
     {
-        var res = Game.ResManager.LoadAsset<TextAsset>(PathConfig.GetJsonDataPath(fileName));
-        Debug.Log(res);
+        private Dictionary<string, object> _dataDic = new();
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Init("ExcelData");
+            // GetDataRow<ExcelTestExData>("1");
+        }
+
+        private void Init(string fileName)
+        {
+            
+            TextAsset res = Game.ResManager.LoadAsset<TextAsset>(PathConfig.GetJsonDataPath(fileName));
+            if (res == null) return;
+            ExcelDataLoader.Sericalize(res.text); 
+            // ExcelDataSerialize infos = Json.FromJson<ExcelDataSerialize>(res.text);
+        }
+
+        // private void OnLoadToSub(TextAsset textAsset, string url)
+        // {
+        // var dataName = $"Excel{textAsset.name}Data";
+        // var type = Type.GetType($"LGF.Data.{dataName}");
+        // object dataInfos = JsonUtility.FromJson(textAsset.text, type);
+        // _dataDic.Add(dataName, dataInfos);
+        // }
+
+        public object GetDataRow<T>(string key)
+        {
+            var dataName = typeof(T).Name;
+            if (_dataDic.TryGetValue(dataName, out var dataValue))
+            {
+                Debug.Log(dataValue);
+            }
+
+            return null;
+        }
+
+        public object getData<T>(string dataName, string value)
+        {
+            // if (_dataDic.TryGetValue())
+            return null;
+        }
     }
 }
