@@ -3,15 +3,9 @@ using UnityEngine;
 
 public class MainController : LGFController
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Init()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Init();
+        Debug.Log("MainController Init");
     }
 }

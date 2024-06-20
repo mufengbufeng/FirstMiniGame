@@ -91,6 +91,7 @@
     <Compile Include="Assets\GameMain\Scripts\Data\ExcelData.cs" />
     <Compile Include="Assets\GameMain\Scripts\Main\MainController.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets\GameMain\Scripts\GameModule.cs" />
     <Compile Include="Assets\LGF\Res\CheckAssetResult.cs" />
     <Compile Include="Assets\LGF\MVC\LGFModel.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
