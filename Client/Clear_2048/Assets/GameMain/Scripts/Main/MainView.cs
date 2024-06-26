@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MainView : LGFView
 {
-    private Image TImge;
+    public Image UI_Img_Test;
 
     protected override void OnInit(string uiName, int uiDepth, object userData)
     {
@@ -14,10 +14,10 @@ public class MainView : LGFView
             Debug.Log(info);
         }
 
-        TImge = transform.Find("TImg").GetComponent<Image>();
-        if (TImge != null)
+        // UI_Img_Test = transform.Find("TImg").GetComponent<Image>();
+        if (UI_Img_Test != null)
         {
-            TImge.sprite = Game.ResManager.LoadSprite("Main", "Img_01");
+            UI_Img_Test.sprite = Game.ResManager.LoadSprite("Main", "Img_01");
         }
     }
 

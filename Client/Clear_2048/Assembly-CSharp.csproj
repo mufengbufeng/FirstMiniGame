@@ -67,11 +67,11 @@
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\LGF\Path\PathConfig.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\LGF\UI\IUIRoot.cs" />
     <Compile Include="Assets\LGF\Singleton.cs" />
     <Compile Include="Assets\GameMain\Scripts\Data\ExcelDataLoader.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\LGF\Util\FrameworkUtil.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
@@ -89,6 +89,7 @@
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\LGF\Util\FileUtil.cs" />
     <Compile Include="Assets\GameMain\Scripts\Data\ExcelData.cs" />
+    <Compile Include="Assets\LGF\UI\UIRoot.cs" />
     <Compile Include="Assets\GameMain\Scripts\Main\MainController.cs" />
     <Compile Include="Assets\GameMain\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\GameMain\Scripts\GameModule.cs" />

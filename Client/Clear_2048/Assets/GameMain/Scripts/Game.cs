@@ -22,7 +22,6 @@ public class Game : MonoBehaviour
         EventManager.Add(GameEvent.YooAssetInitialized, (message) =>
         {
             _dataManager = this.AddComponent<DataManager>();
-
             Load();
         });
     }
@@ -42,10 +41,8 @@ public class Game : MonoBehaviour
 
     private void Load()
     {
-        // UIManager.Open<MainView>();
         int[] a = new[] { 1, 1, 2, 2, 1 };
         // UIManager.Open<MainView>();
-        UIManager.Open("MainView", a);
-        Debug.Log("aaaa");
+        UIManager.Open<MainView>(a);
     }
 }

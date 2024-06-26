@@ -21,10 +21,9 @@ namespace LGF.UI
             _canvas = GameObject.Find("Canvas");
         }
 
-        public LGFView Open<T>(string uiFormName = null, object userData = null, int uiDepth = 1) where T : LGFView
+        public LGFView Open<T>(object userData = null, int uiDepth = 1) where T : LGFView
         {
-            if (string.IsNullOrEmpty(uiFormName)) uiFormName = typeof(T).ToString();
-
+            string uiFormName = typeof(T).ToString();
             if (m_UIForms.TryGetValue(uiFormName, out var open))
             {
                 return open;

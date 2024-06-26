@@ -12,7 +12,7 @@ public class ExcelEditor : EditorWindow
     public static void ShowExample()
     {
         ExcelEditor wnd = GetWindow<ExcelEditor>();
-        wnd.titleContent = new GUIContent("ExcelWindowTest");
+        wnd.titleContent = new GUIContent("ExcelWindow");
     }
 
     private static string UXMLROOT = "Assets/LGF/Editor/UI/";
