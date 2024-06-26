@@ -19,8 +19,10 @@ namespace LGF.Editor
             var files = FileUtil.GetFiles(inPath, "*.xlsx");
             //过滤 ~ 临时文件 
             files = files.FindAll(s => !s.Contains("~"));
+
             var sb = new StringBuilder();
             sb.AppendLine("{");
+
             int len = files.Count;
             for (var index = 0; index < files.Count; index++)
             {
@@ -46,6 +48,7 @@ namespace LGF.Editor
 
             sb.AppendLine("}");
             if (!Directory.Exists($"{outDataPath}/ExcelData.json")) Directory.CreateDirectory(outDataPath);
+            
             File.WriteAllText($"{outDataPath}/ExcelData.json", sb.ToString());
 
             MakeCSFile(etList, PathConfig.ExDataScriptPath);
@@ -59,16 +62,6 @@ namespace LGF.Editor
             var sb = new StringBuilder();
 
             sb.AppendLine("{\"paths\": [");
-            // var files = FileUtil.GetFiles(path, "*.json");
-            // for (int i = 0; i < files.Count; i++)
-            // {
-            //     var file = files[i];
-            //     if (file.EndsWith("Config.json")) continue;
-            //     var url = $"{urlPath}/{PathUtil.BaseName(file)}";
-            //     // sb.AppendLine(i != files.Count - 1 ? $"{{\"path\": \"{url}\"}}," : $"{{\"path\": \"{url}\"}}");
-            //     sb.AppendLine(i != files.Count - 1 ? $"\"{url}\"," : $"\"{url}\"");
-            // }
-
             sb.AppendLine($"{{\"path\": \"{path}/ExcelData.json\"}}");
 
             sb.AppendLine("]}");
@@ -108,7 +101,6 @@ namespace LGF.Editor
                 allExGetSb.AppendLine($"public static {excelName}[] {et.name} => _excelDataSerialize.{et.name};");
                 allExDictSb.AppendLine($"private static readonly Dictionary<int, {excelName}> _{et.name}Dict = new();");
                 allExDictInitSb.AppendLine($"InitDict(_{et.name}Dict, _excelDataSerialize.{et.name});");
-
                 allExGetByIdSb.AppendLine($"public static {excelName} Get{et.name}Data(int id) => _{et.name}Dict.ContainsKey(id)? _{et.name}Dict[id]:null;");
 
                 nameSb.AppendLine($"\t\tpublic {excelName}[] {et.name};");
@@ -125,6 +117,9 @@ namespace LGF.Editor
             }
 
             string loader = string.Format(ExcelTemplate.ExcelLoaderTemplate, allExGetSb, allExDictSb, allExDictInitSb, allExGetByIdSb);
+            int a = 2;
+            string str1 = $"{a}{a}{a}";
+            string str2 = string.Format("{0}{1}{2}", a,a,a);
             File.WriteAllText($"{path}/ExcelDataLoader.cs", loader, Encoding.UTF8);
             // File.WriteAllText(, Encoding.UTF8);
             File.WriteAllText($"{path}/ExcelData.cs", sb.ToString(), Encoding.UTF8);
@@ -135,15 +130,6 @@ namespace LGF.Editor
         {
             Debug.Log($"MakeDataFile{et.name}");
             var sb = new StringBuilder();
-            // sb.AppendLine("{");
-            // sb.AppendFormat($"\"name\":\"{et.name}\",").AppendLine();
-            // var keys = new List<string>();
-            // for (int i = 0; i < et.keyCount; i++)
-            // {
-            //     keys.Add(et.clientCols[i].name);
-            // }
-
-            // sb.Append($"\"keys\":[\"{string.Join("\",\"", keys)}\"],").AppendLine();
             sb.AppendLine($"\"{et.name}\":[");
 
             // 主数据
@@ -154,10 +140,21 @@ namespace LGF.Editor
                 {
                     var col = et.clientCols[colIndex];
                     var val = et.GetValue(rowIndex, col);
-                    //if (val.StartsWith("\"")) val = string.Concat("\"", StringUtil.EncodeUnicode(val.Trim('"')), "\"");
-                    if (val.StartsWith("\"")) val = string.Concat("\"", val.Trim('"'), "\"");
-                    if (colIndex == 0) sb.AppendFormat("\"{0}\":{1}", col.name, val);
-                    else sb.AppendFormat(",\"{0}\":{1}", col.name, val);
+                    if (val.StartsWith("\""))
+                    {
+                        Debug.LogError($"origin{val}");
+                        val = string.Concat("\"", val.Trim('"'), "\"");
+                        Debug.LogError(val);
+                    }
+
+                    if (colIndex == 0)
+                    {
+                        sb.AppendFormat("\"{0}\":{1}", col.name, val);
+                    }
+                    else
+                    {
+                        sb.AppendFormat(",\"{0}\":{1}", col.name, val);
+                    }
                 }
 
                 sb.AppendLine(rowIndex != et.dataRowCount - 1 ? "}," : "}");
@@ -165,13 +162,8 @@ namespace LGF.Editor
 
             sb.AppendLine("]");
             var jsonText = sb.ToString();
-            return jsonText;
-            // Debug.Lg($"{path}/{et.name}.json");
-            // 清除文件防止重复
-            // if (File.Exists($"{path}/{et.name}.json")) File.Delete($"{path}/{et.name}.json");
 
-            // if (!Directory.Exists(path)) Directory.CreateDirectory(path);
-            // File.WriteAllText($"{path}/{et.name}.json", jsonText);
+            return jsonText;
         }
     }
 }
